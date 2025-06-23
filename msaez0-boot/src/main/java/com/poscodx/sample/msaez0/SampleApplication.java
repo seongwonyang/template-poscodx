@@ -1,8 +1,8 @@
 forEach: BoundedContext
-path: {{name}}/{{name}}-boot/src/main/java/com/poscodx/sample/{{name}}
+path: {{nameCamelCase}}/{{nameCamelCase}}-boot/src/main/java/com/poscodx/sample/{{nameCamelCase}}
 fileName: SampleApplication.java
 ---
-package com.poscodx.sample.{{name}};
+package com.poscodx.sample.{{nameCamelCase}};
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,11 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @EntityScan(basePackages = {
-    "com.poscodx.sample.{{name}}",
+    "com.poscodx.sample.{{nameCamelCase}}",
     "com.poscodx.reuse.common.util.kafka.db"
 })
 @EnableJpaRepositories(basePackages = {
-    "com.poscodx.sample.{{name}}",
+    "com.poscodx.sample.{{nameCamelCase}}",
     "com.poscodx.reuse.common.util.kafka.db"
 })
 @RestController

@@ -1,5 +1,5 @@
 forEach: BoundedContext
-path: {{name}}/{{name}}-boot/src/main/resources
+path: {{nameCamelCase}}/{{nameCamelCase}}-boot/src/main/resources
 fileName: log4j2-cloud.xml
 ---
 <?xml version="1.0" encoding="utf-8"?>

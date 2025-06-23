@@ -1,8 +1,8 @@
 forEach: BoundedContext
-path: {{name}}/{{name}}-boot/src/main/java/com/posco/sample/{{name}}/config
+path: {{nameCamelCase}}/{{nameCamelCase}}-boot/src/main/java/com/posco/sample/{{nameCamelCase}}/config
 fileName: GsonHttpMessageConverterConfiguration.java
 ---
-package com.poscodx.sample.{{name}}.config;
+package com.poscodx.sample.{{nameCamelCase}}.config;
 
 import java.util.List;
 import com.poscodx.base.share.util.json.JsonUtil;
