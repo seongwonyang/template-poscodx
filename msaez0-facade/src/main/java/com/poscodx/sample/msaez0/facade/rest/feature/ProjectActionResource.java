@@ -1,6 +1,10 @@
-package com.poscodx.sample.msaez0.facade.rest.feature;
+forEach: Aggregate
+path: {{boundedContext.name}}/{{boundedContext.name}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.name}}/facade/rest/feature
+fileName: {{namePascalCase}}ActionResource.java
+---
+package com.poscodx.sample.{{boundedContext.name}}.facade.rest.feature;
 
-import com.poscodx.sample.msaez0.feature.action.ProjectAction;
+import com.poscodx.sample.{{boundedContext.name}}.feature.action.{{namePascalCase}}Action;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/project-action")
-public class ProjectActionResource {
-    private final ProjectAction action;
+@RequestMapping(path = "/{{namePascalCase}}-action")
+public class {{namePascalCase}}ActionResource {
+    private final {{namePascalCase}}Action action;
     
     /* 
     // TODO : Biz Logic 구현 

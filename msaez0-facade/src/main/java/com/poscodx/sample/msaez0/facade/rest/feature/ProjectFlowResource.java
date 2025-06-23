@@ -1,6 +1,10 @@
-package com.poscodx.sample.msaez0.facade.rest.feature;
+forEach: Aggregate
+path: {{boundedContext.name}}/{{boundedContext.name}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.name}}/facade/rest/feature
+fileName: {{namePascalCase}}FlowResource.java
+---
+package com.poscodx.sample.{{boundedContext.name}}.facade.rest.feature;
 
-import com.poscodx.sample.msaez0.feature.flow.ProjectFlow;
+import com.poscodx.sample.{{boundedContext.name}}.feature.flow.{{namePascalCase}}Flow;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/project-flow")
-public class ProjectFlowResource {
-    private final ProjectFlow flow;
+@RequestMapping(path = "/{{namePascalCase}}-flow")
+public class {{namePascalCase}}FlowResource {
+    private final {{namePascalCase}}Flow flow;
     
     /* 
     // TODO : Biz Logic 구현 

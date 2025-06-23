@@ -1,9 +1,13 @@
-package com.poscodx.sample.msaez0.facade.rest.store;
+forEach: Aggregate
+path: {{boundedContext.name}}/{{name}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.name}}/facade/rest/store
+fileName: {{namePascalCase}}Resource.java
+---
+package com.poscodx.sample.{{boundedContext.name}}.facade.rest.store;
 
 import java.util.List;
 import com.poscodx.base.share.domain.NameValueList;
-import com.poscodx.sample.msaez0.store.domain.entity.Project;
-import com.poscodx.sample.msaez0.store.domain.logic.ProjectLogic;
+import com.poscodx.sample.{{boundedContext.name}}.store.domain.entity.{{name}};
+import com.poscodx.sample.{{boundedContext.name}}.store.domain.logic.{{name}}Logic;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,27 +35,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @CrossOrigin("*")
 @RestController
-@RequestMapping(path = "/project")
-public class ProjectResource {
-    private final ProjectLogic logic;
+@RequestMapping(path = "/{{namePascalCase}}")
+public class {{namePascalCase}}Resource {
+    private final {{namePascalCase}}Logic logic;
 
     @GetMapping(path = "/all")
-    public List<Project> findAll() {
+    public List<{{namePascalCase}}> findAll() {
         return this.logic.findAll();
     }
 
     @GetMapping(path = "/{id}")
-    public Project find(@PathVariable("id") Integer id) {
+    public {{namePascalCase}} find(@PathVariable("id") Integer id) {
         return this.logic.find(id);
     }
 
     @PostMapping
-    public Project register(@org.springframework.web.bind.annotation.RequestBody Project entity) {
+    public {{namePascalCase}} register(@org.springframework.web.bind.annotation.RequestBody {{namePascalCase}} entity) {
         return this.logic.register(entity);
     }
 
     @PutMapping(path = "/{id}")
-    public Project modify(@PathVariable("id") Integer id, @org.springframework.web.bind.annotation.RequestBody NameValueList nameValues) {
+    public {{namePascalCase}} modify(@PathVariable("id") Integer id, @org.springframework.web.bind.annotation.RequestBody NameValueList nameValues) {
         return this.logic.modify(id, nameValues);
     }
 
