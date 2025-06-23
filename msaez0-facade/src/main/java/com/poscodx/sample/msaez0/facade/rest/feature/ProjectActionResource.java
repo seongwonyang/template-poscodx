@@ -1,5 +1,5 @@
 forEach: Aggregate
-path: {{boundedContext.name}}/{{boundedContext.name}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.name}}/facade/rest/feature
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/facade/rest/feature
 fileName: {{namePascalCase}}ActionResource.java
 ---
 package com.poscodx.sample.{{boundedContext.name}}.facade.rest.feature;

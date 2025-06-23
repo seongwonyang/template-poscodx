@@ -1,13 +1,13 @@
 forEach: Aggregate
-path: {{boundedContext.name}}/{{boundedContext.name}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.name}}/facade/rest/store
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/facade/rest/store
 fileName: {{namePascalCase}}Resource.java
 ---
-package com.poscodx.sample.{{boundedContext.name}}.facade.rest.store;
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.facade.rest.store;
 
 import java.util.List;
 import com.poscodx.base.share.domain.NameValueList;
-import com.poscodx.sample.{{boundedContext.name}}.store.domain.entity.{{name}};
-import com.poscodx.sample.{{boundedContext.name}}.store.domain.logic.{{name}}Logic;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.logic.{{namePascalCase}}Logic;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @CrossOrigin("*")
 @RestController
-@RequestMapping(path = "/{{namePascalCase}}")
+@RequestMapping(path = "/{{nameCamelCase}}")
 public class {{namePascalCase}}Resource {
     private final {{namePascalCase}}Logic logic;
 

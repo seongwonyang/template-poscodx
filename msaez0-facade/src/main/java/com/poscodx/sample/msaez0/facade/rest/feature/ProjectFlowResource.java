@@ -1,8 +1,8 @@
 forEach: Aggregate
-path: {{boundedContext.name}}/{{boundedContext.name}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.name}}/facade/rest/feature
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-facade/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/facade/rest/feature
 fileName: {{namePascalCase}}FlowResource.java
 ---
-package com.poscodx.sample.{{boundedContext.name}}.facade.rest.feature;
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.facade.rest.feature;
 
 import com.poscodx.sample.{{boundedContext.name}}.feature.flow.{{namePascalCase}}Flow;
 import lombok.RequiredArgsConstructor;
