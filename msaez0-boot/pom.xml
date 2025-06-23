@@ -1,5 +1,5 @@
 forEach: BoundedContext
-path: {{name}}/{{options.package}}-boot
+path: {{name}}/{{name}}-boot
 fileName: pom.xml
 ---
 <?xml version="1.0" encoding="utf-8"?>
