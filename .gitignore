@@ -1,5 +1,6 @@
 forEach:BoundedContext
 path:{{nameCamelCase}}
+fileName: .gitignore
 ---
 **/.metadata/
 **/.recommenders/

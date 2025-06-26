@@ -1,5 +1,6 @@
 forEach:BoundedContext
 path:{{nameCamelCase}}
+fileName: README.md
 ---
 # msaez0-sample
 
