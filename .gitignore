@@ -1,3 +1,6 @@
+forEach:BoundedContext
+path:{{nameCamelCase}}
+---
 **/.metadata/
 **/.recommenders/
 **/target
