@@ -1,4 +1,8 @@
-package com.poscodx.sample.msaez0.store.postgresql.jpo;
+forEach: Aggregate
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store/postgresql/jpo
+fileName: {{namePascalCase}}Jpo.java
+---
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.jpo;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,36 +34,28 @@ import org.springframework.beans.BeanUtils;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity(name = "ProjectJpo")
-@Table(name = "project", schema = "public")
-public class ProjectJpo
+@Entity(name = "{{namePascalCase}}Jpo")
+@Table(name = "{{nameCamelCase}}", schema = "public")
+public class {{namePascalCase}}Jpo
     extends PoscoEntityJpo
 {
+    {{#aggregateRoot.fieldDescriptors}}
+    {{^isVO}}
+    {{#isKey}}
     @Id
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "pname")
-    private String pname;
-    @Column(name = "url")
-    private String url;
-    @Column(name = "lead")
-    private String lead;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "pkey")
-    private String pkey;
-    @Column(name = "pcounter")
-    private Integer pcounter;
-    @Column(name = "assigneetype")
-    private Integer assigneetype;
-    @Column(name = "avatar")
-    private Integer avatar;
-    @Column(name = "originalkey")
-    private String originalkey;
-    @Column(name = "projecttype")
-    private String projecttype;
+    @Column(name = "{{nameCamelCase}}")
+    {{#checkClassType ../aggregateRoot.fieldDescriptors}}{{/checkClassType}}
+    {{/isKey}}
+    {{/isVO}}
+    @Column(name = "{{nameCamelCase}}")
+    {{#isLob}}@Lob{{/isLob}}
+    {{#if (isPrimitive className)}}{{#isList}}{{/isList}}{{/if}}
+    {{#checkFieldType className isVO namePascalCase isKey ../aggregateRoot.entities.relations}}{{/checkFieldType}}
+    {{#checkEntityField className nameCamelCase isVO label}}
+    {{/checkEntityField}}
+    {{/aggregateRoot.fieldDescriptors}}
 
-    public ProjectJpo(Project entity) {
+    public {{namePascalCase}}Jpo({{namePascalCase}} entity) {
         BeanUtils.copyProperties(entity, this);
     }
 
@@ -79,3 +75,90 @@ public class ProjectJpo
         return StreamSupport.stream(jpos.spliterator(), false).map((ProjectJpo::toDomain)).collect(Collectors.toList());
     }
 }
+
+<function>
+window.$HandleBars.registerHelper('checkClassType', function (fieldDescriptors) {
+    for(var i = 0; i < fieldDescriptors.length; i ++ ){
+        if(fieldDescriptors[i] && fieldDescriptors[i].className == 'Long'){
+            return "@GeneratedValue(strategy=GenerationType.AUTO)";
+        }
+    }
+    return "";
+});
+
+window.$HandleBars.registerHelper('isPrimitive', function (className) {
+    if(className.includes("String") || className.includes("Integer") || className.includes("Long") || className.includes("Double") || className.includes("Float")
+            || className.includes("Boolean") || className.includes("Date")){
+        return true;
+    } else {
+        return false;
+    }
+});
+
+window.$HandleBars.registerHelper('checkFieldType', function (className, isVO, name, isKey, relation) {
+    try {
+        if (className === "Integer" || className === "String" || className === "Boolean" || className === "Float" || 
+           className === "Double" || className === "Long" || className === "Date" || className === "BigDecimal") {
+            return;
+        }
+        
+        if (className.includes("List")) {
+            const foundRelation = relation.find(rel => 
+                rel && rel.name === name && !rel.targetElement._type.endsWith("enum"));
+                
+            if (foundRelation) {
+                var aggName = foundRelation.sourceElement.name;
+                aggName = aggName.charAt(0).toLowerCase() + aggName.slice(1);
+                if (foundRelation.targetElement.isVO) {
+                    return "@ElementCollection";
+                } else {
+                    return "@OneToMany(mappedBy = \"" + aggName + "\", cascade = CascadeType.ALL, orphanRemoval = true)";
+                }
+            }else{
+                if(className.includes("List<")){
+                    return "@ElementCollection";
+                }else{
+                    return "@Enumerated(EnumType.STRING)";
+                }
+            }
+        } else {
+            if (isVO === true) {
+                if (isKey === true) {
+                    return "@EmbeddedId";
+                } else {
+                    return "@Embedded";
+                }
+            } else if (relation) {
+                const fields = relation.filter(field => field != null);
+                
+                const foundField = fields.find(field => 
+                    field && field.name === name && field.targetElement);
+
+                var aggName = foundField.sourceElement.name;
+                aggName = aggName.charAt(0).toLowerCase() + aggName.slice(1);
+                    
+                if (foundField) {
+                    if (className === foundField.targetElement.namePascalCase && 
+                        foundField.targetElement._type.endsWith("enum")) {
+                        return "@Enumerated(EnumType.STRING)";
+                    } else if (foundField.targetElement.isVO) {
+                        return "@Embedded";
+                    } else {
+                        return "@OneToOne(mappedBy = \"" + aggName + "\", cascade = CascadeType.ALL, orphanRemoval = true)";
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        console.log(e);
+    }
+});
+
+window.$HandleBars.registerHelper('checkEntityField', function (type, name, isVO, label) {
+    if(type.includes("List<") && !isVO && label){
+        return "private" + " " + type + " " + name + " " + "= " + "new java.util.ArrayList<>();";
+    }else{
+        return "private" + " " + type + " " + name + ";";
+    }
+});
+</function>

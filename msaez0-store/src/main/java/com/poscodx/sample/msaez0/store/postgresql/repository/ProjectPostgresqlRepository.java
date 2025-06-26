@@ -1,6 +1,10 @@
-package com.poscodx.sample.msaez0.store.postgresql.repository;
+forEach: Aggregate
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store/postgresql/repository
+fileName: {{namePascalCase}}PostgresqlRepository.java
+---
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.repository;
 
-import com.poscodx.sample.msaez0.store.postgresql.jpo.ProjectJpo;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.jpo.{{namePascalCase}}Jpo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -15,7 +19,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @2025-06-19 11:29:02.759;00000;홍길동;최초생성
  * 
  */
-public interface ProjectPostgresqlRepository
-    extends JpaRepository<ProjectJpo, Integer>
+public interface {{namePascalCase}}PostgresqlRepository
+    extends JpaRepository<{{namePascalCase}}Jpo, Integer>
 {
 }

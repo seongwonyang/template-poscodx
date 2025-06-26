@@ -1,11 +1,15 @@
-package com.poscodx.sample.msaez0.store.postgresql;
+forEach: Aggregate
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store/postgresql
+fileName: {{namePascalCase}}PostgresqlStore.java
+---
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql;
 
 import java.util.List;
 import java.util.Optional;
-import com.poscodx.sample.msaez0.store.ProjectStore;
-import com.poscodx.sample.msaez0.store.domain.entity.Project;
-import com.poscodx.sample.msaez0.store.postgresql.jpo.ProjectJpo;
-import com.poscodx.sample.msaez0.store.postgresql.repository.ProjectPostgresqlRepository;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.{{namePascalCase}}Store;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.jpo.{{namePascalCase}}Jpo;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.repository.{{namePascalCase}}PostgresqlRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -25,20 +29,20 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 @RequiredArgsConstructor
 @Repository
-public class ProjectPostgresqlStore
-    implements ProjectStore
+public class {{namePascalCase}}PostgresqlStore
+    implements {{namePascalCase}}Store
 {
-    private final ProjectPostgresqlRepository repository;
+    private final {{namePascalCase}}PostgresqlRepository repository;
 
     @Override
-    public List<Project> retrieveAll() {
-        List<ProjectJpo> jpos = this.repository.findAll();
-        return ProjectJpo.toDomains(jpos);
+    public List<{{namePascalCase}}> retrieveAll() {
+        List<{{namePascalCase}}Jpo> jpos = this.repository.findAll();
+        return {{namePascalCase}}Jpo.toDomains(jpos);
     }
 
     @Override
-    public Project retrieve(Integer id) {
-        Optional<ProjectJpo> retVal = this.repository.findById(id);
+    public {{namePascalCase}} retrieve(Integer id) {
+        Optional<{{namePascalCase}}Jpo> retVal = this.repository.findById(id);
         if (retVal.isPresent()) {
             return retVal.get().toDomain();
         } else {
@@ -52,16 +56,16 @@ public class ProjectPostgresqlStore
     }
 
     @Override
-    public Project update(Project entity) {
-        ProjectJpo jpoToUpdate = new ProjectJpo(entity);
-        ProjectJpo updatedJpo = this.repository.save(jpoToUpdate);
+    public {{namePascalCase}} update({{namePascalCase}} entity) {
+        {{namePascalCase}}Jpo jpoToUpdate = new {{namePascalCase}}Jpo(entity);
+        {{namePascalCase}}Jpo updatedJpo = this.repository.save(jpoToUpdate);
         return updatedJpo.toDomain();
     }
 
     @Override
-    public Project create(Project entity) {
-        ProjectJpo jpoToSave = new ProjectJpo(entity);
-        ProjectJpo savedJpo = this.repository.save(jpoToSave);
+    public {{namePascalCase}} create({{namePascalCase}} entity) {
+        {{namePascalCase}}Jpo jpoToSave = new {{namePascalCase}}Jpo(entity);
+        {{namePascalCase}}Jpo savedJpo = this.repository.save(jpoToSave);
         return savedJpo.toDomain();
     }
 }

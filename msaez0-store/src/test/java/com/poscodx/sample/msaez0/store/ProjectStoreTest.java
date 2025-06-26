@@ -1,10 +1,14 @@
-package com.poscodx.sample.msaez0.store;
+forEach: Aggregate
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/test/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store
+fileName: {{namePascalCase}}StoreTest.java
+---
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store;
 
 import java.util.List;
 import com.poscodx.base.share.util.json.JsonUtil;
-import com.poscodx.sample.msaez0.store.ProjectStore;
-import com.poscodx.sample.msaez0.store.domain.entity.Project;
-import com.poscodx.sample.msaez0.store.postgresql.ProjectPostgresqlStore;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.{{namePascalCase}}Store;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.{{namePascalCase}}PostgresqlStore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -26,15 +30,15 @@ import org.springframework.context.ApplicationContext;
 @EnableAutoConfiguration
 @SpringBootTest(classes = {
     ApplicationContext.class,
-    ProjectPostgresqlStore.class
+    {{namePascalCase}}PostgresqlStore.class
 })
-public class ProjectStoreTest {
+public class {{namePascalCase}}StoreTest {
     @Autowired
-    private ProjectStore store;
+    private {{namePascalCase}}Store store;
 
     @Test
     public void test() {
-        List<Project> entities = this.store.retrieveAll();
+        List<{{namePascalCase}}> entities = this.store.retrieveAll();
         String json = JsonUtil.toJson(entities);
         System.out.println(entities.size());
         System.out.println(json);

@@ -1,9 +1,13 @@
-package com.poscodx.sample.msaez0.store.domain.logic;
+forEach: Aggregate
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store/domain/logic
+fileName: {{namePascalCase}}Logic.java
+---
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.logic;
 
 import java.util.List;
 import com.poscodx.base.share.domain.NameValueList;
-import com.poscodx.sample.msaez0.store.ProjectStore;
-import com.poscodx.sample.msaez0.store.domain.entity.Project;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.{{namePascalCase}}Store;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,15 +30,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Transactional
 @Service
-public class ProjectLogic {
+public class {{namePascalCase}}Logic {
     private final MessageSource messageSource;
-    private final ProjectStore store;
+    private final {{namePascalCase}}Store store;
 
-    public List<Project> findAll() {
+    public List<{{namePascalCase}}> findAll() {
         return this.store.retrieveAll();
     }
 
-    public Project find(Integer id) {
+    public {{namePascalCase}} find(Integer id) {
         return this.store.retrieve(id);
     }
 
@@ -42,12 +46,12 @@ public class ProjectLogic {
         this.store.delete(id);
     }
 
-    public Project register(Project entity) {
+    public {{namePascalCase}} register({{namePascalCase}} entity) {
         return this.store.create(entity);
     }
 
-    public Project modify(Integer id, NameValueList nameValues) {
-        Project entity = this.store.retrieve(id);
+    public {{namePascalCase}} modify(Integer id, NameValueList nameValues) {
+        {{namePascalCase}} entity = this.store.retrieve(id);
         entity.setValues(nameValues);
         return this.store.update(entity);
     }

@@ -1,6 +1,10 @@
-package com.poscodx.sample.msaez0.feature.action;
+forEach: Aggregate
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-feature/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/feature/action
+fileName: {{namePascalCase}}Action.java
+---
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.action;
 
-import com.poscodx.sample.msaez0.store.domain.logic.ProjectLogic;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.logic.{{namePascalCase}}Logic;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,9 +27,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 @Transactional
-public class ProjectAction {
+public class {{namePascalCase}}Action {
     private final MessageSource messageSource;
-    private final ProjectLogic logic;
+    private final {{namePascalCase}}Logic logic;
     
     /* 
     // TODO : Biz Logic 구현 

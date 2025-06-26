@@ -1,3 +1,7 @@
+forEach: BoundedContext
+path: {{nameCamelCase}}/{{nameCamelCase}}-store/src/test/resources
+fileName: application.yml
+---
 spring:
   datasource:
     url: jdbc:postgresql://10.125.2.121:5432/jiradb

@@ -1,7 +1,11 @@
-package com.poscodx.sample.msaez0.store;
+forEach: Aggregate
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store
+fileName: {{namePascalCase}}Store.java
+---
+package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store;
 
 import java.util.List;
-import com.poscodx.sample.msaez0.store.domain.entity.Project;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 
 
 /**
@@ -15,15 +19,15 @@ import com.poscodx.sample.msaez0.store.domain.entity.Project;
  * @2025-06-19 11:29:02.759;00000;홍길동;최초생성
  * 
  */
-public interface ProjectStore {
+public interface {{namePascalCase}}Store {
 
-    List<Project> retrieveAll();
+    List<{{namePascalCase}}> retrieveAll();
 
     void delete(Integer id);
 
-    Project retrieve(Integer id);
+    {{namePascalCase}} retrieve(Integer id);
 
-    Project update(Project entity);
+    {{namePascalCase}} update({{namePascalCase}} entity);
 
-    Project create(Project entity);
+    {{namePascalCase}} create({{namePascalCase}} entity);
 }
