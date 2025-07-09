@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import com.poscodx.base.share.exception.PoscoException;
 import com.poscodx.base.share.jpo.PoscoEntityJpo;
-import com.poscodx.sample.msaez0.store.domain.entity.Project;
+import com.poscodx.sample.msaez0.store.domain.entity.{{namePascalCase}};
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -65,14 +65,14 @@ public class {{namePascalCase}}Jpo
     {
     }
 
-    public Project toDomain() {
-        Project entity = new Project();
+    public {{namePascalCase}} toDomain() {
+        {{namePascalCase}} entity = new {{namePascalCase}}();
         BeanUtils.copyProperties(this, entity);
         return entity;
     }
 
-    public static List<Project> toDomains(Iterable<ProjectJpo> jpos) {
-        return StreamSupport.stream(jpos.spliterator(), false).map((ProjectJpo::toDomain)).collect(Collectors.toList());
+    public static List<{{namePascalCase}}> toDomains(Iterable<{{namePascalCase}}Jpo> jpos) {
+        return StreamSupport.stream(jpos.spliterator(), false).map(({{namePascalCase}}Jpo::toDomain)).collect(Collectors.toList());
     }
 }
 
