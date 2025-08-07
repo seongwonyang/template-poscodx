@@ -4,8 +4,8 @@ fileName: {{namePascalCase}}FlowResource.java
 ---
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.facade.rest.feature;
 
-import com.poscodx.sample.{{boundedContext.name}}.feature.flow.{{namePascalCase}}Flow;
-import com.poscodx.sample.{{boundedContext.name}}.feature.action.{{namePascalCase}}Action;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.flow.{{namePascalCase}}Flow;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.action.{{namePascalCase}}Action;
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 {{#commands}}
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;
@@ -18,6 +18,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 /**
