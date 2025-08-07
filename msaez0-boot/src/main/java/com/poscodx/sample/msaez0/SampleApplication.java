@@ -1,6 +1,6 @@
 forEach: BoundedContext
 path: {{nameCamelCase}}/{{nameCamelCase}}-boot/src/main/java/com/poscodx/sample/{{nameCamelCase}}
-fileName: SampleApplication.java
+fileName: {{nameCamelCase}}Application.java
 ---
 package com.poscodx.sample.{{nameCamelCase}};
 

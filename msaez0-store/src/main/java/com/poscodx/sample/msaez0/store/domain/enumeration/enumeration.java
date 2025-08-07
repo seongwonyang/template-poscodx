@@ -1,5 +1,5 @@
 forEach: Enumeration
-path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store/domain/enum
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store/domain/enumeration
 fileName: {{namePascalCase}}.java
 ---
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.enum;

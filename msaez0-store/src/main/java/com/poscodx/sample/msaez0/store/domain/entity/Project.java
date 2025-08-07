@@ -3,7 +3,15 @@ path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/sr
 fileName: {{namePascalCase}}.java
 ---
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity;
-{{#aggregateRoot.fieldDescriptors}}{{^if (isPrimitive className)}}import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.vo.{{removeList className}};{{/if}}{{/aggregateRoot.fieldDescriptors}}
+{{#aggregateRoot.fieldDescriptors}}
+{{^if (isPrimitive className)}}
+{{if (equals className  "enum")}}
+import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.enumeration.{{removeList className}};
+{{/if}}
+{{else}}
+import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.vo.{{removeList className}};
+{{/if}}
+{{/aggregateRoot.fieldDescriptors}}
 
 
 import java.sql.Timestamp;
