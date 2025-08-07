@@ -19,6 +19,7 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Lob;
+import java.util.Date;
 
 
 /**
