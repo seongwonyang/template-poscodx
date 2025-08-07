@@ -22,6 +22,7 @@ import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 import java.util.Date;
 import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Embedded;
 
 
 /**
