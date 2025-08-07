@@ -5,6 +5,7 @@ fileName: {{namePascalCase}}Flow.java
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.flow;
 
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.action.{{namePascalCase}}Action;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 {{#commands}}
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;
 {{/commands}}

@@ -5,7 +5,7 @@ fileName: {{namePascalCase}}ActionResource.java
 package com.poscodx.sample.{{boundedContext.name}}.facade.rest.feature;
 
 import com.poscodx.sample.{{boundedContext.name}}.feature.action.{{namePascalCase}}Action;
-
+import com.poscodx.sample.{{boundedContext.name}}.feature.flow.{{namePascalCase}}Flow;
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 {{#commands}}
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;

@@ -5,6 +5,7 @@ fileName: {{namePascalCase}}Action.java
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.action;
 
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.logic.{{namePascalCase}}Logic;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 {{#commands}}
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;
 {{/commands}}
