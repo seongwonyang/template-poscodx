@@ -3,9 +3,7 @@ path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/sr
 fileName: {{namePascalCase}}.java
 ---
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity;
-{{#fieldDescriptors}}{{^if (isPrimitive className)}}import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.vo.{{removeList className}};{{/if}}{{/fieldDescriptors}}
-
-
+{{#aggregateRoot.fieldDescriptors}}{{^if (isPrimitive className)}}import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.vo.{{removeList className}};{{/if}}{{/aggregateRoot.fieldDescriptors}}
 
 import java.sql.Timestamp;
 import com.poscodx.base.share.domain.PoscoEntity;
