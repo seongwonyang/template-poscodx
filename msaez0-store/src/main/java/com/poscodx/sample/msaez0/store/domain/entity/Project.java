@@ -3,11 +3,21 @@ path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/sr
 fileName: {{namePascalCase}}.java
 ---
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity;
+{{#aggregateRoot.fieldDescriptors}}{{^if (isPrimitive className)}}import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.vo.{{removeList className}};{{/if}}{{/aggregateRoot.fieldDescriptors}}
 
+
+import java.sql.Timestamp;
 import com.poscodx.base.share.domain.PoscoEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
+import jakarta.persistence.Id;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Lob;
 
 
 /**

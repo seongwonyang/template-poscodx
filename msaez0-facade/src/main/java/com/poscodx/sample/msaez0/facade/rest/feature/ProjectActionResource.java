@@ -5,6 +5,15 @@ fileName: {{namePascalCase}}ActionResource.java
 package com.poscodx.sample.{{boundedContext.name}}.facade.rest.feature;
 
 import com.poscodx.sample.{{boundedContext.name}}.feature.action.{{namePascalCase}}Action;
+
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
+{{#commands}}
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;
+{{/commands}}
+{{#attached 'View' this}}
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;
+{{/attached}}
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,5 +58,29 @@ public class {{namePascalCase}}ActionResource {
         return messageSource.getMessage("SOME_MESSAGE_ID", args, locale);
     } 
     */ 
+
+    // command
+    {{#commands}}
+    {{#if isRestRepository}}
+    {{else}}
+    @GetMapping("/{{nameCamelCase}}")
+    public void {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
+        action.someMethod();
+
+        {{#outgoing 'Event' this}}
+        streamBridge.send("{{nameCamelCase}}-out-0",
+                MessageBuilder.withPayload({{namePascalCase}}Event.toJson()).build());
+        {{/outgoing}}
+    }
+    {{/if}}
+    {{/commands}}
+
+    // view
+    {{#attached 'View' this}}
+    @GetMapping("/{{nameCamelCase}}")
+    public {{../namePascalCase}} {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
+        action.someMethod();
+    }
+    {{/attached}}
 
 }

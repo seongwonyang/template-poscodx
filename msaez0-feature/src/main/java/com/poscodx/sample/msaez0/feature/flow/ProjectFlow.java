@@ -5,6 +5,12 @@ fileName: {{namePascalCase}}Flow.java
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.flow;
 
 import com.poscodx.sample.{{boundedContext.nameCamelCase}}.feature.action.{{namePascalCase}}Action;
+{{#commands}}
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;
+{{/commands}}
+{{#attached 'View' this}}
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.dto.{{namePascalCase}}Dto;
+{{/attached}}
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -50,4 +56,20 @@ public class {{namePascalCase}}Flow {
     } 
     */ 
 
+    // command
+    {{#commands}}
+    {{#if isRestRepository}}
+    {{else}}
+    public void {{nameCamelCase}}({{namePascalCase}}Dto {{nameCamelCase}}Dto) {
+        action.someMethod();
+    }
+    {{/if}}
+    {{/commands}}
+
+    // view
+    {{#attached 'View' this}}
+    public {{../namePascalCase}} {{nameCamelCase}}({{namePascalCase}}Dto {{nameCamelCase}}Dto) {
+        action.someMethod();
+    }
+    {{/attached}}
 }
