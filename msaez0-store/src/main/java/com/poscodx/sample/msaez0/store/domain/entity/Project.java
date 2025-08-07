@@ -3,15 +3,8 @@ path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/sr
 fileName: {{namePascalCase}}.java
 ---
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity;
-{{#aggregateRoot.fieldDescriptors}}
-{{^if (isPrimitive className)}}
-{{#if (equals className  "enum")}}
-import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.enumeration.{{removeList className}};
-{{else}}
-import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.vo.{{removeList className}};
-{{/if}}
-{{/if}}
-{{/aggregateRoot.fieldDescriptors}}
+{{#fieldDescriptors}}{{^if (isPrimitive className)}}import com.poscodx.sample.{{../boundedContext.nameCamelCase}}.store.domain.vo.{{removeList className}};{{/if}}{{/fieldDescriptors}}
+
 
 
 import java.sql.Timestamp;
@@ -61,6 +54,14 @@ public class {{namePascalCase}}
 }
 
 <function>
+window.$HandleBars.registerHelper('equals', function (className, value) {
+    if(className == value){
+        return true;
+    }else{
+        return false;
+    }
+});
+
 window.$HandleBars.registerHelper('checkClassType', function (fieldDescriptors) {
     for(var i = 0; i < fieldDescriptors.length; i ++ ){
         if(fieldDescriptors[i] && fieldDescriptors[i].className == 'Long'){
