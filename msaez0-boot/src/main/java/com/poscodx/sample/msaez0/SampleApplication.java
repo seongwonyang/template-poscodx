@@ -33,10 +33,10 @@ import org.springframework.web.bind.annotation.RestController;
     "com.poscodx.reuse.common.util.kafka.db"
 })
 @RestController
-public class SampleApplication {
+public class {{nameCamelCase}}Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SampleApplication.class, args);
+        SpringApplication.run({{nameCamelCase}}Application.class, args);
     }
 
     @GetMapping(path = "/health")
