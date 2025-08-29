@@ -9,20 +9,20 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-import com.poscodx.base.share.exception.PoscoException;
-import com.poscodx.base.share.jpo.PoscoEntityJpo;
-import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
+import java.util.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Embedded;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
-import java.util.Date;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embedded;
+import com.poscodx.base.share.exception.PoscoException;
+import com.poscodx.base.share.jpo.PoscoEntityJpo;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 
 
 /**

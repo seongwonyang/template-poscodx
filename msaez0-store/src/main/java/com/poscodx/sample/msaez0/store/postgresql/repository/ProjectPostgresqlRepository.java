@@ -4,8 +4,8 @@ fileName: {{namePascalCase}}PostgresqlRepository.java
 ---
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.repository;
 
-import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.jpo.{{namePascalCase}}Jpo;
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.jpo.{{namePascalCase}}Jpo;
 
 
 /**

@@ -5,15 +5,15 @@ fileName: {{namePascalCase}}StoreTest.java
 package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store;
 
 import java.util.List;
-import com.poscodx.base.share.util.json.JsonUtil;
-import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.{{namePascalCase}}Store;
-import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
-import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.{{namePascalCase}}PostgresqlStore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+import com.poscodx.base.share.util.json.JsonUtil;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.{{namePascalCase}}Store;
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
+import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.postgresql.{{namePascalCase}}PostgresqlStore;
 
 
 /**
