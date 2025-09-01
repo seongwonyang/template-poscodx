@@ -12,5 +12,5 @@ generated at {{currentTimestamp}}
   Java 패키지 : com.poscodx.sample.{{nameCamelCase}}
 ```
 {{this.serviceId}} this
-{{serviceId}}
+{{options.serviceId}}
 {{value.serviceId}} value
