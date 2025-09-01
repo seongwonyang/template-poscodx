@@ -39,27 +39,6 @@ import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.
 @RequestMapping(path = "/{{namePascalCase}}-flow")
 public class {{namePascalCase}}FlowResource {
     private final {{namePascalCase}}Flow flow;
-    
-    /* 
-    // TODO : Biz Logic 구현 
-    // 1. 필요한 컴포넌트 선언 
-    private final SomeComponent someComponent; 
-    private final SomeLogic someLogic; 
-    private final SomeAction someAction; 
-    private final SomeFlow someFlow; 
-
-    // 2. 필요한 메소드 정의 및 구현 
-    public void someMethod() { 
-        someComponent.someMethod(); 
-        someLogic.someMethod(); 
-        someAction.someMethod(); 
-        someFlow.someMethod(); 
-        flow.someMethod(); 
-    } 
-    public String someMessageTest(Locale locale, String ... args) { 
-        return messageSource.getMessage("SOME_MESSAGE_ID", args, locale);
-    } 
-    */ 
 
     // command
     {{#commands}}
@@ -86,3 +65,5 @@ public class {{namePascalCase}}FlowResource {
     {{/attached}}
 
 }
+
+

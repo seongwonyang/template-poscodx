@@ -36,30 +36,9 @@ import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/{{namePascalCase}}-action")
+@RequestMapping(path = "/{{getRequsetMapping nameCamelCase}}")
 public class {{namePascalCase}}ActionResource {
     private final {{namePascalCase}}Action action;
-    
-    /* 
-    // TODO : Biz Logic 구현 
-    // 1. 필요한 컴포넌트 선언 
-    private final SomeComponent someComponent; 
-    private final SomeLogic someLogic; 
-    private final SomeAction someAction; 
-    private final SomeFlow someFlow; 
-
-    // 2. 필요한 메소드 정의 및 구현 
-    public void someMethod() { 
-        someComponent.someMethod(); 
-        someLogic.someMethod(); 
-        someAction.someMethod(); 
-        someFlow.someMethod(); 
-        flow.someMethod(); 
-    } 
-    public String someMessageTest(Locale locale, String ... args) { 
-        return messageSource.getMessage("SOME_MESSAGE_ID", args, locale);
-    } 
-    */ 
 
     // command
     {{#commands}}
@@ -86,3 +65,13 @@ public class {{namePascalCase}}ActionResource {
     {{/attached}}
 
 }
+
+<function>
+window.$HandleBars.registerHelper('getRequsetMapping', function (nameCamelCase) {
+    // 단어가 하나면 그대로 반환, camelCase면 kebab-case로 변환
+    if (typeof nameCamelCase !== 'string') return nameCamelCase;
+    // camelCase 경계(소문자/숫자 다음 대문자)가 없으면 그대로 반환
+    if (!/[a-z0-9][A-Z]/.test(nameCamelCase)) return nameCamelCase;
+    return nameCamelCase.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+});
+</function>
