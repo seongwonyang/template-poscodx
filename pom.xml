@@ -9,8 +9,8 @@ path: {{nameCamelCase}}
         <artifactId>poscodx-parent</artifactId>
         <version>21.0.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.poscodx.sample.msaez0</groupId>
-    <artifactId>{{nameCamelCase}}-sample</artifactId>
+    <groupId>com.poscodx.{{options.serviceId}}.msaez0</groupId>
+    <artifactId>{{nameCamelCase}}-{{options.serviceId}}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>

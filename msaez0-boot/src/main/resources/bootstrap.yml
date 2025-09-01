@@ -7,7 +7,7 @@ spring:
     config:
       uri: ${bootstrap-config.uri}
   application:
-    name: {{name}}-sample
+    name: {{name}}-{{options.serviceId}}
   profiles:
     active: local
 bootstrap-config:

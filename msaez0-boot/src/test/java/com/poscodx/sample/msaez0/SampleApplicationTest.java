@@ -1,8 +1,8 @@
 forEach: BoundedContext
-path: {{nameCamelCase}}/{{nameCamelCase}}-boot/src/test/java/com/poscodx/sample/{{nameCamelCase}}
-fileName: SampleApplicationTest.java
+path: {{nameCamelCase}}/{{nameCamelCase}}-boot/src/test/java/com/poscodx/{{options.serviceId}}/{{nameCamelCase}}
+fileName: {{options.serviceId}}ApplicationTest.java
 ---
-package com.poscodx.sample.{{nameCamelCase}};
+package com.poscodx.{{options.serviceId}}.{{nameCamelCase}};
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * 
  */
 @SpringBootTest
-public class SampleApplicationTest {
+public class {{options.serviceId}}ApplicationTest {
 
     @Test
     public void contextLoads() {

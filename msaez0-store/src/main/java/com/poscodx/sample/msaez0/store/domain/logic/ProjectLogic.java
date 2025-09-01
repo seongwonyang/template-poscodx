@@ -1,8 +1,8 @@
 forEach: Aggregate
-path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/sample/{{boundedContext.nameCamelCase}}/store/domain/logic
+path: {{boundedContext.nameCamelCase}}/{{boundedContext.nameCamelCase}}-store/src/main/java/com/poscodx/{{options.serviceId}}/{{boundedContext.nameCamelCase}}/store/domain/logic
 fileName: {{namePascalCase}}Logic.java
 ---
-package com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.logic;
+package com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.domain.logic;
 
 import java.util.List;
 import jakarta.transaction.Transactional;
@@ -11,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import com.poscodx.base.share.domain.NameValueList;
-import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.{{namePascalCase}}Store;
-import com.poscodx.sample.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
+import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.{{namePascalCase}}Store;
+import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.domain.entity.{{namePascalCase}};
 
 
 /**
