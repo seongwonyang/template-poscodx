@@ -36,7 +36,7 @@ import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/{{getRequsetMapping nameCamelCase}}")
+@RequestMapping(path = "/{{getRequsetMapping name}}")
 public class {{namePascalCase}}ActionResource {
     private final {{namePascalCase}}Action action;
 
@@ -46,7 +46,7 @@ public class {{namePascalCase}}ActionResource {
     {{else}}
     @GetMapping("/{{nameCamelCase}}")
     public void {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
-        action.someMethod();
+        // action.someMethod();
 
         {{#outgoing 'Event' this}}
         streamBridge.send("{{nameCamelCase}}-out-0",
@@ -60,14 +60,14 @@ public class {{namePascalCase}}ActionResource {
     {{#attached 'View' this}}
     @GetMapping("/{{nameCamelCase}}")
     public {{../namePascalCase}} {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
-        action.someMethod();
+        // action.someMethod();
     }
     {{/attached}}
 
 }
 
 <function>
-window.$HandleBars.registerHelper('getRequsetMapping', function (nameCamelCase) {
+window.$HandleBars.registerHelper('getRequsetMapping', function (name) {
     // 단어가 하나면 그대로 반환, camelCase면 kebab-case로 변환
     if (typeof nameCamelCase !== 'string') return nameCamelCase;
     // camelCase 경계(소문자/숫자 다음 대문자)가 없으면 그대로 반환

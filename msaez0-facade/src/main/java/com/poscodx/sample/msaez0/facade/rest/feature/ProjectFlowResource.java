@@ -36,7 +36,7 @@ import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/{{namePascalCase}}-flow")
+@RequestMapping(path = "/{{getRequsetMapping nameCamelCase}}")
 public class {{namePascalCase}}FlowResource {
     private final {{namePascalCase}}Flow flow;
 
@@ -46,7 +46,7 @@ public class {{namePascalCase}}FlowResource {
     {{else}}
     @GetMapping("/{{nameCamelCase}}")
     public void {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
-        flow.someMethod();
+        // flow.someMethod();
 
         {{#outgoing 'Event' this}}
         streamBridge.send("{{nameCamelCase}}-out-0",
@@ -60,10 +60,18 @@ public class {{namePascalCase}}FlowResource {
     {{#attached 'View' this}}
     @GetMapping("/{{nameCamelCase}}")
     public {{../namePascalCase}} {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
-        flow.someMethod();
+        // flow.someMethod();
     }
     {{/attached}}
 
 }
 
-
+<function>
+window.$HandleBars.registerHelper('getRequsetMapping', function (name) {
+    // 단어가 하나면 그대로 반환, camelCase면 kebab-case로 변환
+    if (typeof nameCamelCase !== 'string') return nameCamelCase;
+    // camelCase 경계(소문자/숫자 다음 대문자)가 없으면 그대로 반환
+    if (!/[a-z0-9][A-Z]/.test(nameCamelCase)) return nameCamelCase;
+    return nameCamelCase.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+});
+</function>
