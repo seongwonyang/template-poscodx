@@ -36,7 +36,7 @@ import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/{{getRequsetMapping boundedContext.nameCamelCase}}")
+@RequestMapping(path = "/{{getRequsetMapping nameCamelCase}}")
 public class {{namePascalCase}}ActionResource {
     private final {{namePascalCase}}Action action;
 
