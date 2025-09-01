@@ -47,7 +47,7 @@ public class {{namePascalCase}}FlowResource {
     {{#commands}}
     {{#if isRestRepository}}
     {{else}}
-    @{{controllerInfo.method}}}}Mapping("/{{nameCamelCase}}")
+    @{{controllerInfo.method}}Mapping("/{{nameCamelCase}}")
     public void {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
         // flow.someMethod();
 
