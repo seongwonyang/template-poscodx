@@ -11,3 +11,6 @@ generated at {{currentTimestamp}}
   프로젝트 명 : sample
   Java 패키지 : com.poscodx.sample.{{nameCamelCase}}
 ```
+{{this.serviceId}} this
+{{serviceId}}
+{{value.serviceId}} value
