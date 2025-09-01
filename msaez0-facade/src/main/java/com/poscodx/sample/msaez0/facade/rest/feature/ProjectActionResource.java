@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.feature.action.{{namePascalCase}}Action;
 import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.feature.flow.{{namePascalCase}}Flow;
@@ -44,7 +47,7 @@ public class {{namePascalCase}}ActionResource {
     {{#commands}}
     {{#if isRestRepository}}
     {{else}}
-    @GetMapping("/{{nameCamelCase}}")
+    @{{controllerInfo.method}}}}Mapping("/{{nameCamelCase}}")
     public void {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
         // action.someMethod();
 

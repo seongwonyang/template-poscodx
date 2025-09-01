@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.feature.flow.{{namePascalCase}}Flow;
 import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.feature.action.{{namePascalCase}}Action;
@@ -36,7 +39,7 @@ import com.poscodx.{{options.serviceId}}.{{boundedContext.nameCamelCase}}.store.
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/{{getRequsetMapping nameCamelCase}}")
+@RequestMapping(path = "/{{getRequsetMapping namePascalCase}}")
 public class {{namePascalCase}}FlowResource {
     private final {{namePascalCase}}Flow flow;
 
@@ -44,7 +47,7 @@ public class {{namePascalCase}}FlowResource {
     {{#commands}}
     {{#if isRestRepository}}
     {{else}}
-    @GetMapping("/{{nameCamelCase}}")
+    @{{controllerInfo.method}}}}Mapping("/{{nameCamelCase}}")
     public void {{nameCamelCase}}(@RequestBody {{namePascalCase}}Dto {{nameCamelCase}}Dto) {
         // flow.someMethod();
 
@@ -67,11 +70,11 @@ public class {{namePascalCase}}FlowResource {
 }
 
 <function>
-window.$HandleBars.registerHelper('getRequsetMapping', function (name) {
+window.$HandleBars.registerHelper('getRequsetMapping', function (namePascalCase) {
     // 단어가 하나면 그대로 반환, camelCase면 kebab-case로 변환
-    if (typeof nameCamelCase !== 'string') return nameCamelCase;
+    if (typeof namePascalCase !== 'string') return namePascalCase;
     // camelCase 경계(소문자/숫자 다음 대문자)가 없으면 그대로 반환
-    if (!/[a-z0-9][A-Z]/.test(nameCamelCase)) return nameCamelCase;
-    return nameCamelCase.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+    if (!/[a-z0-9][A-Z]/.test(namePascalCase)) return namePascalCase;
+    return namePascalCase.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 });
 </function>

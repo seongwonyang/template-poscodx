@@ -42,10 +42,10 @@ public class {{namePascalCase}}Flow {
     // command
     {{#commands}}
     {{#if isRestRepository}}
-    {{else}}
     public void {{nameCamelCase}}({{namePascalCase}}Dto {{nameCamelCase}}Dto) {
         // action.someMethod();
     }
+    {{else}}
     {{/if}}
     {{/commands}}
 
