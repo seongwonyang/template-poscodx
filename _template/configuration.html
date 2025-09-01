@@ -2,5 +2,5 @@ forEach: BoundedContext
 path: {{nameCamelCase}}/_template
 fileName: configuration.html
 ---
-<text-field :value.sync="value.name" label="서비스 명"></text-field>
+<text-field :value.sync="{{nameCamelCase}}" label="서비스 명"></text-field>
 <text-field :value.sync="value.serviceId" label="서비스 ID"></text-field>
